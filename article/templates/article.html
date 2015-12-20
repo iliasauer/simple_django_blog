@@ -1,7 +1,6 @@
-{% load staticfiles %}
+{% extends 'index.html' %}
 
-<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
-
+{% block article %}
 <h6>{{ article.article_date }}</h6>
 <h4>{{ article.article_title }}</h4>
 <p>{{ article.article_text }}</p>
@@ -11,3 +10,4 @@
 {% for commentary in commentaries %}
     <p>{{ commentary.commentary_text }}</p>
 {% endfor %}
+{% endblock %}
