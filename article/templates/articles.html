@@ -1,6 +1,6 @@
 {% extends 'index.html' %}
 
-{% block articles %}
+{% block article %}
 {% for article in articles %}
     <h6>{{ article.article_date }}</h6>
     <h4><a href="/articles/get/{{ article.id }}">{{ article.article_title }}</a></h4>
