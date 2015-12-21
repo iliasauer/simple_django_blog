@@ -11,35 +11,35 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-theme.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'css/signs-style.css' %}"/>
     <link rel="shortcut icon" href="{% static 'img/favicon.png' %}" type="image/png"/>
+    <script src="{% static "js/jquery-1.11.2.min.js" %}"></script>
+    <script src="{% static "js/bootstrap.js" %}"></script>
+    <script src="{% static "js/collapse.js" %}"></script>
+    <script src="{% static "js/dropdown.js" %}"></script>
+    <script src="{% static "js/transition.js" %}"></script>
 </head>
 <body>
-<header>
-    <nav class="navbar">
-        <div class="container-fluid">
-            <ul class="navbar-nav nav">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                        data-target="#bs-example-navbar-collapse-1">
+<header class="navbar header">
+        <nav class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <li><a class="navbar-brand" href="#">Zlogger</a></li>
-                <li class="logo-item">
-                    <div class="logo-block">
-                        <img class="logo" src="{% static "img/newlogobluelight.png" %} ">
-                    </div>
-                </li>
-            </ul>
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <a class="navbar-brand" href="#">
+                    Zlogger
+                </a>
+             <a class="navbar-brand logo-link" href="#"><div class="logo"></div></a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-                    <li><a data-hover="Home" href="/"></a></li>
-                    <li><a data-hover="About" href="https://github.com/autoschool/zlogger"></a></li>
+                    <li><a class="header-link" data-hover="Home" href="/"></a></li>
+                    <li><a class="header-link" data-hover="About" href="https://github.com/iliasauer/gallery"></a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a data-hover="Settings" href="/user/profile"></a></li>
-                    <li><a data-hover="Login" href="/login"></a></li>
-                    {#                        <li><a data-hover="Logout" href="<c:url value="/j_spring_security_logout" />"></a></li>#}
+                    <li><a class="header-link" data-hover="Sign Up" href="/"></a></li>
+                    <li><a class="header-link" data-hover="Login" href="/"></a></li>
                 </ul>
             </div>
         </div>

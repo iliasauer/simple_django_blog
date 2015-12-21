@@ -1,5 +1,5 @@
 {% extends 'index.html' %}
-
+{% load staticfiles %}
 {% block article %}
     <section class="container">
         <div class="row blog-row">
@@ -9,10 +9,29 @@
                         <p class="post-date"><span class="icon icon-clock"></span>{{ article.article_date }}</p>
                         <h2>{{ article.article_title }}</h2>
                         <p class="full-content">{{ article.article_text }}</p>
-                        <p><span class="icon icon-thumbs-o-up"></span>{{ article.article_likes }}</p>
+                        <p>
+                            <a href="/articles/addlike/{{ article.id }}/">
+                                <span class="icon icon-thumbs-o-up"></span>
+                            </a>
+                            {{ article.article_likes }}
+                        </p>
                     </article>
                     <hr>
                     <p>Commentaries</p>
+                    <div class="leave-comment-block">
+                        <form action="/articles/addcommentary/{{ article.id }}" method="post">
+                            {% csrf_token %}
+{#                            <label for="content-post-field">Leave a comment</label>#}
+{#                            <textarea class="form-control" maxlength="" id="content-post-field" rows="3"#}
+{#                                      required></textarea>#}
+                            {{ form }}
+                            <div class="leave-comment-buttons">
+                                <button type="submit">
+                                    Submit <img class="icon" src="{% static "article/img/submit.png" %}">
+                                </button>
+                            </div>
+                        </form>
+                    </div>
                     {% for commentary in commentaries %}
                         <div class="comment-body">
                             <div class="comment-content">

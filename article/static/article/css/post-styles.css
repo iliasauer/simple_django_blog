@@ -25,22 +25,7 @@
   overflow: hidden;
   margin: 15px auto;
 }
-.comment-userpic {
-  display: block;
-  vertical-align: middle;
-  border: 0px none;
-  width: 100%;
-}
-.comment-userpic-link {
-  float: left;
-  padding-right: 10px;
-}
-.comment-userpic-block {
-  max-width: 64px;
-  max-height: 64px;
-  margin-top: 5px;
-  margin-left: 5px;
-}
+
 .comment-body {
   display: table-cell;
   vertical-align: top;

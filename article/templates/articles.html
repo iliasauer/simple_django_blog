@@ -7,10 +7,10 @@
                     {% for article in articles %}
                         <article class="post">
                             <p class="post-date"><span class="icon icon-clock"></span>{{ article.article_date }}</p>
-                            <h2><a href="/articles/get/{{ article.id }}">{{ article.article_title }}</a></h2>
+                            <h2><a class="underlined" href="/articles/get/{{ article.id }}/">{{ article.article_title }}</a></h2>
                             <hr>
                             <p class="content">{{ article.article_text }}</p>
-                            <p><span class="icon icon-thumbs-o-up"></span>{{ article.article_likes }}</p>
+                            <p><a href="/articles/addlike/{{ article.id }}/"><span class="icon icon-thumbs-o-up"></span></a> {{ article.article_likes }}</p>
                         </article>
                     {% endfor %}
                 </div>

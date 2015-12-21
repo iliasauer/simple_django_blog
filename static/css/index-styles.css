@@ -1,3 +1,28 @@
+button[type="submit"] .icon {
+  width: 10px;
+  height: 10px;
+  transition: all 0.4s;
+}
+button[type="submit"] .hover .icon {
+  transform: scale(1.2);
+}
+button[type="submit"]:hover .icon {
+  transform: scale(1.2);
+}
+button[type="submit"] .icon {
+  width: 14px;
+  height: 14px;
+  transition: all 0.4s ease-in-out;
+}
+button[type="submit"] .hover .icon {
+  transform: scale(1.2);
+}
+button[type="submit"]:hover,
+.add-post-button:hover,
+.reset-button:hover {
+  color: white;
+}
+
 .post hr {
   margin-top: 10px;
   margin-bottom: 10px;
@@ -29,7 +54,7 @@
   white-space: nowrap;
   overflow: hidden;
 }
-.post a {
+.post .underlined {
   color: black;
   padding: 3px 0 4px;
   position: relative;
@@ -37,9 +62,8 @@
   text-decoration: none;
   letter-spacing: 1px;
   outline: none;
-  text-shadow: 2px 2px 5px #6251e4;
 }
-.post a:after {
+.post .underlined:after {
   content: '';
   position: absolute;
   top: 100%;
@@ -51,13 +75,10 @@
   opacity: 0;
   transition: opacity 0.3s, transform 0.3s;
 }
-.post a:hover::after {
+.post .underlined:hover::after {
   opacity: 1;
   transform: translateY(0px);
 }
 .post h2 a {
   text-transform: uppercase;
-}
-.blog-row {
-  margin-top: 30px;
 }
