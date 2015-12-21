@@ -19,11 +19,8 @@
                     <hr>
                     <p>Commentaries</p>
                     <div class="leave-comment-block">
-                        <form action="/articles/addcommentary/{{ article.id }}" method="post">
+                        <form action="/articles/addcommentary/{{ article.id }}/" method="post">
                             {% csrf_token %}
-{#                            <label for="content-post-field">Leave a comment</label>#}
-{#                            <textarea class="form-control" maxlength="" id="content-post-field" rows="3"#}
-{#                                      required></textarea>#}
                             {{ form }}
                             <div class="leave-comment-buttons">
                                 <button type="submit">
@@ -34,9 +31,11 @@
                     </div>
                     <hr>
                     {% for commentary in commentaries %}
-                        <div class="comment-body">
-                            <div class="comment-content">
-                                {{ commentary.commentary_text }}
+                        <div class="comment">
+                            <div class="comment-body">
+                                <div class="comment-content">
+                                    {{ commentary.commentary_text }}
+                                </div>
                             </div>
                         </div>
                     {% endfor %}

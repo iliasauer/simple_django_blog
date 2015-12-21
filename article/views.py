@@ -36,3 +36,13 @@ def addlike(request, article_id):
     return redirect('/')
 
 
+def addcommentary(request, article_id):
+    if request.POST:
+        form = CommentaryForm(request.POST)
+        if form.is_valid():
+            commentary = form.save(commit=False)
+            commentary.commentary_article = Article.objects.get(id=article_id)
+            form.save()
+    return redirect('/articles/get/%s/' % article_id)
+
+
