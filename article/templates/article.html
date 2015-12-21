@@ -1,13 +1,28 @@
 {% extends 'index.html' %}
 
 {% block article %}
-<h6>{{ article.article_date }}</h6>
-<h4>{{ article.article_title }}</h4>
-<p>{{ article.article_text }}</p>
-<p>{{ article.article_likes }}</p>
-<hr>
-<p>Commentaries</p>
-{% for commentary in commentaries %}
-    <p>{{ commentary.commentary_text }}</p>
-{% endfor %}
+    <section class="container">
+        <div class="row blog-row">
+            <div class="col-sm-8">
+                <div class="full-post-space">
+                    <article class="post">
+                        <p class="post-date"><span class="icon icon-clock"></span>{{ article.article_date }}</p>
+                        <h2>{{ article.article_title }}</h2>
+                        <p class="full-content">{{ article.article_text }}</p>
+                        <p><span class="icon icon-thumbs-o-up"></span>{{ article.article_likes }}</p>
+                    </article>
+                    <hr>
+                    <p>Commentaries</p>
+                    {% for commentary in commentaries %}
+                        <div class="comment-body">
+                            <div class="comment-content">
+                                {{ commentary.commentary_text }}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+
 {% endblock %}

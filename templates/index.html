@@ -4,45 +4,51 @@
     <meta charset="UTF-8">
     <title>Blog</title>
     {% load staticfiles %}
-    <link rel="stylesheet" type="text/css" href="{% static '' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'css/common-styles.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-theme.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'css/signs-style.css' %}" />
-    <link rel="shortcut icon" href="{% static 'img/favicon.png' %}" type="image/png" />
+    <link rel="stylesheet" type="text/css" href="{% static 'article/css/post-styles.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/common-styles.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index-styles.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-theme.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/signs-style.css' %}"/>
+    <link rel="shortcut icon" href="{% static 'img/favicon.png' %}" type="image/png"/>
 </head>
 <body>
-    <header>
+<header>
     <nav class="navbar">
         <div class="container-fluid">
             <ul class="navbar-nav nav">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <li><a class="navbar-brand" href="index.html">Zlogger</a></li>
+                <li><a class="navbar-brand" href="#">Zlogger</a></li>
                 <li class="logo-item">
                     <div class="logo-block">
-                        <img class="logo" src="{% static 'img/newlogobluelight.png' %}">
+                        <img class="logo" src="{% static "img/newlogobluelight.png" %} ">
                     </div>
                 </li>
             </ul>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><a data-hover="Home" href="#"></a></li>
-                    <li><a data-hover="Login" href="#"></a></li>
-                    <li><a data-hover="About" href=""></a></li>
+                    <li><a data-hover="Home" href="/"></a></li>
+                    <li><a data-hover="About" href="https://github.com/autoschool/zlogger"></a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a  data-hover="Settings" href="#"></a></li>
+                    <li><a data-hover="Settings" href="/user/profile"></a></li>
+                    <li><a data-hover="Login" href="/login"></a></li>
+                    {#                        <li><a data-hover="Logout" href="<c:url value="/j_spring_security_logout" />"></a></li>#}
                 </ul>
             </div>
         </div>
     </nav>
 </header>
-    <h1>My blog</h1>
+<main>
+
     {% block article %}{% endblock %}
+
+</main>
 </body>
 </html>
