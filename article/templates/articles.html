@@ -1,10 +1,9 @@
 {% extends 'index.html' %}
-
 {% block article %}
 {% for article in articles %}
     <h6>{{ article.article_date }}</h6>
     <h4><a href="/articles/get/{{ article.id }}">{{ article.article_title }}</a></h4>
     <p>{{ article.article_text }}</p>
-    <p>{{ article.article_likes }}</p>
+    <p><div class="icon icon-thumbs-o-up"></div><span>{{ article.article_likes }}</span></p>
 {% endfor %}
 {% endblock %}
