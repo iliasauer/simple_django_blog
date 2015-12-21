@@ -17,15 +17,13 @@ def articles(request):
 
 
 def article(request, article_id=1):
-    commentary_form = CommentaryForm
+    commentary_form = CommentaryForm()
     args = {}
     args.update(csrf(request))
     args['article'] = Article.objects.get(id=article_id)
     args['commentaries'] = Commentary.objects.filter(commentary_article_id=article_id)
     args['form'] = commentary_form
-    return render_to_response('article.html',
-                              {'article': Article.objects.get(id=article_id),
-                               'commentaries': Commentary.objects.filter(commentary_article_id=article_id)})
+    return render_to_response('article.html', args)
 
 
 def addlike(request, article_id):

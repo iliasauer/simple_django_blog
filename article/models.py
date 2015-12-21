@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.db import models
 
 
@@ -13,5 +14,5 @@ class Article(models.Model):
 class Commentary(models.Model):
     class Meta:
         db_table = "commentary"
-    commentary_text = models.TextField()
+    commentary_text = models.TextField(verbose_name="Commentary text:")
     commentary_article = models.ForeignKey(Article)
