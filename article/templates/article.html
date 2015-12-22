@@ -18,18 +18,20 @@
                     </article>
                     <hr>
                     <p>Commentaries</p>
-                    <div class="leave-comment-block">
-                        <form action="/articles/addcommentary/{{ article.id }}/" method="post">
-                            {% csrf_token %}
-                            {{ form }}
-                            <div class="leave-comment-buttons">
-                                <button type="submit">
-                                    Submit <img class="icon" src="{% static "article/img/submit.png" %}">
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                    <hr>
+                    {% if username %}
+                        <div class="leave-comment-block">
+                            <form action="/articles/addcommentary/{{ article.id }}/" method="post">
+                                {% csrf_token %}
+                                {{ form }}
+                                <div class="leave-comment-buttons">
+                                    <button type="submit">
+                                        Submit <img class="icon" src="{% static "article/img/submit.png" %}">
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                        <hr>
+                    {% endif %}
                     {% for commentary in commentaries %}
                         <div class="comment">
                             <div class="comment-body">

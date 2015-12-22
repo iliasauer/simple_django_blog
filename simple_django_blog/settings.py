@@ -37,8 +37,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'zloggerblog',
-    'article'
+    'article',
+    'authorization'
 )
 
 MIDDLEWARE_CLASSES = (

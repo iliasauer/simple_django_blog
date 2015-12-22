@@ -35,19 +35,24 @@
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
                     <li><a class="header-link" data-hover="Home" href="/"></a></li>
-                    <li><a class="header-link" data-hover="About" href="https://github.com/iliasauer/gallery"></a></li>
+                    <li><a class="header-link" data-hover="About" href="https://github.com/iliasauer/simple_django_blog/"></a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
+                    {% if username %}
+                    <li><a class="header-link" data-hover="Logout ({{ username }})" href="/auth/logout/"></a></li>
+                    {% else %}
                     <li><a class="header-link" data-hover="Sign Up" href="/"></a></li>
-                    <li><a class="header-link" data-hover="Login" href="/"></a></li>
+                    <li><a class="header-link" data-hover="Login" href="/auth/login/"></a></li>
+                    {% endif %}
                 </ul>
             </div>
         </div>
     </nav>
 </header>
-<main>
+<main class="container">
 
     {% block article %}{% endblock %}
+    {% block login %}{% endblock %}
 
 </main>
 </body>

@@ -1,3 +1,4 @@
+from django.contrib import auth
 from django.core.exceptions import ObjectDoesNotExist
 from django.http import Http404
 from django.shortcuts import render_to_response, redirect
@@ -13,7 +14,8 @@ def index(request):
 
 def articles(request):
     return render_to_response('articles.html',
-                              {'articles': Article.objects.all()})
+                              {'articles': Article.objects.all(),
+                               'username': auth.get_user(request).username})
 
 
 def article(request, article_id=1):
@@ -23,6 +25,7 @@ def article(request, article_id=1):
     args['article'] = Article.objects.get(id=article_id)
     args['commentaries'] = Commentary.objects.filter(commentary_article_id=article_id)
     args['form'] = commentary_form
+    args['username'] = auth.get_user(request).username
     return render_to_response('article.html', args)
 
 
