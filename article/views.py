@@ -1,5 +1,6 @@
 from django.contrib import auth
 from django.core.exceptions import ObjectDoesNotExist
+from django.core.paginator import Paginator
 from django.http import Http404
 from django.shortcuts import render_to_response, redirect
 from django.template.context_processors import csrf
@@ -12,9 +13,11 @@ def index(request):
     return redirect('/articles/all/')
 
 
-def articles(request):
+def articles(request, page_number=1):
+    all_articles = Article.objects.all()
+    current_page = Paginator(all_articles, 3)
     return render_to_response('articles.html',
-                              {'articles': Article.objects.all(),
+                              {'articles': current_page.page(page_number),
                                'username': auth.get_user(request).username})
 
 

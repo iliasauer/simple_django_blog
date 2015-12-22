@@ -6,4 +6,5 @@ urlpatterns = [
     url(r'^articles/get/(?P<article_id>[0-9]+)/$', 'article.views.article'),
     url(r'^articles/addlike/(?P<article_id>[0-9]+)/$', 'article.views.addlike'),
     url(r'^articles/addcommentary/(?P<article_id>[0-9]+)/$', 'article.views.addcommentary'),
+    url(r'^page/([0-9]+)$', 'article.views.articles'),
 ]
