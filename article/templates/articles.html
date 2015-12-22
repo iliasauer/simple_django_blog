@@ -6,7 +6,7 @@
                 <div class="post-space">
                     {% for article in articles %}
                         <article class="post">
-                            <p class="post-date"><span class="icon icon-clock"></span>{{ article.article_date }}</p>
+                            <p class="post-date">{{ article.article_date }}</p>
                             <h2><a class="underlined"
                                    href="/articles/get/{{ article.id }}/">{{ article.article_title }}</a></h2>
                             <hr>
