@@ -4,50 +4,41 @@
     <meta charset="UTF-8">
     <title>Blog</title>
     {% load staticfiles %}
-{#    <link rel="stylesheet" type="text/css" href="{% static 'article/css/post-styles.css' %}"/>#}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/common-styles.css' %}"/>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/index-styles.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-theme.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'css/signs-style.css' %}"/>
     <link rel="shortcut icon" href="{% static 'img/favicon.png' %}" type="image/png"/>
     <script src="{% static "js/jquery-1.11.2.min.js" %}"></script>
     <script src="{% static "js/bootstrap.js" %}"></script>
-    <script src="{% static "js/collapse.js" %}"></script>
-    <script src="{% static "js/dropdown.js" %}"></script>
-    <script src="{% static "js/transition.js" %}"></script>
 </head>
 <body>
 <header class="navbar header">
-        <nav class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">
-                    Zlogger
-                </a>
-             <a class="navbar-brand logo-link" href="#"><div class="logo"></div></a>
-            </div>
-            <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav">
-                    <li><a class="header-link" data-hover="Home" href="/"></a></li>
-                    <li><a class="header-link" data-hover="About" href="https://github.com/iliasauer/simple_django_blog/"></a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    {% if username %}
-                    <li><a class="header-link" data-hover="Logout ({{ username }})" href="/auth/logout/"></a></li>
-                    {% else %}
-                    <li><a class="header-link" data-hover="Sign Up" href="/auth/signup/"></a></li>
-                    <li><a class="header-link" data-hover="Login" href="/auth/login/"></a></li>
-                    {% endif %}
-                </ul>
-            </div>
+<nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">My Blog</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="/">Home</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                {% if username %}
+              <li><a href="/auth/logout/">Log out</a></li>
+                {% else %}
+              <li><a href="/auth/signup/">Sign up</a></li>
+              <li><a href="/auth/login/">Log in</a></li>
+                {% endif %}
+            </ul>
+          </div>
         </div>
-    </nav>
+      </nav>
 </header>
 <main class="container">
 
