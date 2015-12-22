@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Blog</title>
     {% load staticfiles %}
-    <link rel="stylesheet" type="text/css" href="{% static 'article/css/post-styles.css' %}"/>
+{#    <link rel="stylesheet" type="text/css" href="{% static 'article/css/post-styles.css' %}"/>#}
     <link rel="stylesheet" type="text/css" href="{% static 'css/common-styles.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'css/index-styles.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}"/>
@@ -41,7 +41,7 @@
                     {% if username %}
                     <li><a class="header-link" data-hover="Logout ({{ username }})" href="/auth/logout/"></a></li>
                     {% else %}
-                    <li><a class="header-link" data-hover="Sign Up" href="/"></a></li>
+                    <li><a class="header-link" data-hover="Sign Up" href="/auth/signup/"></a></li>
                     <li><a class="header-link" data-hover="Login" href="/auth/login/"></a></li>
                     {% endif %}
                 </ul>

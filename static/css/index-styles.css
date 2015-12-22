@@ -17,11 +17,6 @@ button[type="submit"] .icon {
 button[type="submit"] .hover .icon {
   transform: scale(1.2);
 }
-button[type="submit"]:hover,
-.add-post-button:hover,
-.reset-button:hover {
-  color: white;
-}
 
 .post hr {
   margin-top: 10px;
