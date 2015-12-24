@@ -16,3 +16,5 @@ class Commentary(models.Model):
         db_table = "commentary"
     commentary_text = models.TextField(verbose_name="Commentary text:")
     commentary_article = models.ForeignKey(Article)
+    commentary_author = models.CharField(default='Unknown', max_length=200)
+    commentary_likes = models.IntegerField(default=0)

@@ -39,15 +39,26 @@ def addlike(request, article_id):
         article_obj.save()
     except ObjectDoesNotExist:
         raise Http404
-    return redirect('/')
+    return redirect('/articles/get/%s/' % article_id)
 
 
-def addcommentary(request, article_id):
+def commentaryaddlike(request, article_id, commentary_id):
+    try:
+        commentary_obj = Commentary.objects.get(id=commentary_id)
+        commentary_obj.commentary_likes += 1
+        commentary_obj.save()
+    except ObjectDoesNotExist:
+        raise Http404
+    return redirect('/articles/get/%s/' % article_id)
+
+
+def addcommentary(request, article_id, username):
     if request.POST:
         form = CommentaryForm(request.POST)
         if form.is_valid():
             commentary = form.save(commit=False)
             commentary.commentary_article = Article.objects.get(id=article_id)
+            commentary.commentary_author = username
             form.save()
     return redirect('/articles/get/%s/' % article_id)
 

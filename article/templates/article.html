@@ -20,7 +20,7 @@
                     <p>Commentaries</p>
                     {% if username %}
                         <div class="leave-comment-block">
-                            <form action="/articles/addcommentary/{{ article.id }}/" method="post">
+                            <form action="/articles/addcommentary/{{ article.id }}/{{ username }}/" method="post">
                                 {% csrf_token %}
                                 {{ form }}
                                 <div class="leave-comment-buttons">
@@ -35,10 +35,17 @@
                     {% for commentary in commentaries %}
                         <div class="comment">
                             <div class="comment-body">
+                                <h4 class="comment-header">{{ commentary.commentary_author }}</h4>
                                 <div class="comment-content">
                                     {{ commentary.commentary_text }}
                                 </div>
                             </div>
+                            <p>
+                                <a href="/commentary/addlike/{{ article.id }}/{{ commentary.id }}/">
+                                    <span class="icon icon-thumbs-o-up"></span>
+                                </a>
+                                {{ commentary.commentary_likes }}
+                            </p>
                         </div>
                     {% endfor %}
                 </div>
