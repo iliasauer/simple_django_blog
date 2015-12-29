@@ -1,0 +1,45 @@
+<!-- Articles -->
+{% extends 'index.html' %}
+{% load staticfiles %}
+{% block forum %}
+    <h2 class="title">{{ topic.topic_title }}</h2>
+    <div id="list">
+
+        {% for article in articles.object_list %}
+            <div class="post">
+                <span class="title">{{ article.article_title }}</span><br/>
+                by {{ article.article_creator }} | <span class="date">{{ article.article_created }}</span> <br/><br/>
+                {{ article.article_text }} <br/>
+            </div>
+            <hr>
+        {% endfor %}
+    </div>
+
+    <h4>Reply</h4>
+    <form action="/topic/get/{{ topic.id }}/article/" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ form }}
+        </div>
+        <button class="btn" type="submit">Send <img class="icon" src="{% static "forum/img/submit.png" %}">
+        </button>
+    </form>
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <ul class="pager">
+                {% if articles.has_previous %}
+                    <li><a href="/forum/page/{{ articles.previous_page_number }}">Previous</a></li>
+                {% else %}
+                    <li class="disabled"><a href="#">Previous</a></li>
+                {% endif %}
+                {% if articles.has_next %}
+                    <li><a href="/forum/page/{{ articles.next_page_number }}">Next</a></li>
+                {% else %}
+                    <li class="disabled"><a href="#">Next</a></li>
+                {% endif %}
+            </ul>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+{% endblock %}

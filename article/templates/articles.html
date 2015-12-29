@@ -8,10 +8,10 @@
                         <article class="post">
                             <p class="post-date"><span class="icon icon-clock"></span>{{ article.article_date }}</p>
                             <h2><a class="underlined"
-                                   href="/articles/get/{{ article.id }}/">{{ article.article_title }}</a></h2>
+                                   href="/blog/articles/get/{{ article.id }}/">{{ article.article_title }}</a></h2>
                             <hr>
                             <p class="content">{{ article.article_text }}</p>
-                            <p><a href="/articles/addlike/{{ article.id }}/"><span class="icon icon-thumbs-o-up"></span></a> {{ article.article_likes }}
+                            <p><a href="/blog/articles/addlike/{{ article.id }}/"><span class="icon icon-thumbs-o-up"></span></a> {{ article.article_likes }}
                             </p>
                         </article>
                     {% endfor %}
@@ -23,12 +23,12 @@
             <div class="col-md-6">
                 <ul class="pager">
                     {% if articles.has_previous %}
-                    <li><a href="/page/{{ articles.previous_page_number }}">Previous</a></li>
+                    <li><a href="/blog/page/{{ articles.previous_page_number }}">Previous</a></li>
                     {% else %}
                     <li class="disabled"><a href="#">Previous</a></li>
                     {% endif %}
                     {% if articles.has_next %}
-                    <li><a href="/page/{{ articles.next_page_number }}">Next</a></li>
+                    <li><a href="/blog/page/{{ articles.next_page_number }}">Next</a></li>
                     {% else %}
                     <li class="disabled"><a href="#">Next</a></li>
                     {% endif %}

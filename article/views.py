@@ -10,7 +10,7 @@ from article.models import Article, Commentary
 
 
 def index(request):
-    return redirect('/articles/all/')
+    return redirect('/blog/articles/all/')
 
 
 def articles(request, page_number=1):
@@ -39,7 +39,7 @@ def addlike(request, article_id):
         article_obj.save()
     except ObjectDoesNotExist:
         raise Http404
-    return redirect('/articles/get/%s/' % article_id)
+    return redirect('/blog/articles/get/%s/' % article_id)
 
 
 def commentaryaddlike(request, article_id, commentary_id):
@@ -49,7 +49,7 @@ def commentaryaddlike(request, article_id, commentary_id):
         commentary_obj.save()
     except ObjectDoesNotExist:
         raise Http404
-    return redirect('/articles/get/%s/' % article_id)
+    return redirect('/blog/articles/get/%s/' % article_id)
 
 
 def addcommentary(request, article_id, username):
@@ -60,6 +60,6 @@ def addcommentary(request, article_id, username):
             commentary.commentary_article = Article.objects.get(id=article_id)
             commentary.commentary_author = username
             form.save()
-    return redirect('/articles/get/%s/' % article_id)
+    return redirect('/blog/articles/get/%s/' % article_id)
 
 

@@ -8,4 +8,5 @@ urlpatterns = [
     url(r'^commentary/addlike/(?P<article_id>[0-9]+)/(?P<commentary_id>[0-9]+)/$', 'article.views.commentaryaddlike'),
     url(r'^articles/addcommentary/(?P<article_id>[0-9]+)/(?P<username>[a-zA-Z]+)/$', 'article.views.addcommentary'),
     url(r'^page/([0-9]+)$', 'article.views.articles'),
+
 ]

@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>Blog</title>
     {% load staticfiles %}
-{#    <link rel="stylesheet" type="text/css" href="{% static 'article/css/post-styles.css' %}"/>#}
     <link rel="stylesheet" type="text/css" href="{% static 'css/common-styles.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'css/index-styles.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}"/>
@@ -34,8 +33,8 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-                    <li><a class="header-link" data-hover="Home" href="/"></a></li>
-                    <li><a class="header-link" data-hover="About" href="https://github.com/iliasauer/simple_django_blog/"></a></li>
+                    <li><a class="header-link" data-hover="Blog" href="/blog/"></a></li>
+                    <li><a class="header-link" data-hover="Forum" href="/forum/"></a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     {% if username %}
@@ -52,6 +51,7 @@
 <main class="container">
 
     {% block article %}{% endblock %}
+    {% block forum %}{% endblock %}
     {% block login %}{% endblock %}
 
 </main>
