@@ -1,13 +1,56 @@
 {% extends 'index.html' %}
-
+{% load staticfiles %}
 {% block article %}
-<h6>{{ article.article_date }}</h6>
-<h4>{{ article.article_title }}</h4>
-<p>{{ article.article_text }}</p>
-<p>{{ article.article_likes }}</p>
-<hr>
-<p>Commentaries</p>
-{% for commentary in commentaries %}
-    <p>{{ commentary.commentary_text }}</p>
-{% endfor %}
+    <section class="container">
+        <div class="row blog-row">
+            <div class="col-sm-8">
+                <div class="full-post-space">
+                    <article class="post">
+                        <p class="post-date"><span class="icon icon-clock"></span>{{ article.article_date }}</p>
+                        <h2>{{ article.article_title }}</h2>
+                        <p class="full-content">{{ article.article_text }}</p>
+                        <p>
+                            <a href="/blog/articles/addlike/{{ article.id }}/">
+                                <span class="icon icon-thumbs-o-up"></span>
+                            </a>
+                            {{ article.article_likes }}
+                        </p>
+                    </article>
+                    <hr>
+                    <p>Commentaries</p>
+                    {% if username %}
+                        <div class="leave-comment-block">
+                            <form action="/articles/addcommentary/{{ article.id }}/{{ username }}/" method="post">
+                                {% csrf_token %}
+                                {{ form }}
+                                <div class="leave-comment-buttons">
+                                    <button type="submit">
+                                        Submit <img class="icon" src="{% static "article/img/submit.png" %}">
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                        <hr>
+                    {% endif %}
+                    {% for commentary in commentaries %}
+                        <div class="comment">
+                            <div class="comment-body">
+                                <h4 class="comment-header">{{ commentary.commentary_author }}</h4>
+                                <div class="comment-content">
+                                    {{ commentary.commentary_text }}
+                                </div>
+                            </div>
+                            <p>
+                                <a href="/blog/commentary/addlike/{{ article.id }}/{{ commentary.id }}/">
+                                    <span class="icon icon-thumbs-o-up"></span>
+                                </a>
+                                {{ commentary.commentary_likes }}
+                            </p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+
 {% endblock %}

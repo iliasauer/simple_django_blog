@@ -1,0 +1,61 @@
+<!-- Threads  -->
+{% extends 'index.html' %}
+{% load staticfiles %}
+{% block forum %}
+    <h4>New topic</h4>
+    <form action="/forum/forum/get/{{ forum_id }}/topic/" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ form }}
+        </div>
+        <button class="btn" type="submit">Send <img class="icon" src="{% static "forum/img/submit.png" %}">
+        </button>
+    </form>
+
+    <div id="list">
+        <table class="table" border="0" cellpadding="4" width="100%">
+            <tr>
+                <td>Topics</td>
+                <td>Replies</td>
+                <td>Last post</td>
+                <td></td>
+            </tr>
+
+            {% for topic in topics.object_list %}
+                <tr>
+                    <td {% if forloop.last %}class="last"{% endif %}>
+                        <div class="title"><a href="/forum/topic/get/{{ topic.id }}/">{{ topic.topic_title }}</a>
+                        </div>
+                    </td>
+                    <td {% if forloop.last %}class="last"{% endif %}>{{ topic.num_replies }}</td>
+                    <td {% if forloop.last %}class="last"{% endif %}>
+                        {{ topic.last_article.short|linebreaksbr }}</td>
+                    <td {% if forloop.last %}class="last"{% endif %}>
+                        <a class="button" href="/forum/topic/get/{{ topic.id }}/">VIEW</a>
+                    </td>
+                </tr>
+
+            {% endfor %}
+        </table>
+    </div>
+
+    <!-- Next/Prev page links  -->
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <ul class="pager">
+                {% if topics.has_previous %}
+                    <li><a href="/page/{{ topics.previous_page_number }}">Previous</a></li>
+                {% else %}
+                    <li class="disabled"><a href="#">Previous</a></li>
+                {% endif %}
+                {% if articles.has_next %}
+                    <li><a href="/page/{{ topics.next_page_number }}">Next</a></li>
+                {% else %}
+                    <li class="disabled"><a href="#">Next</a></li>
+                {% endif %}
+            </ul>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+{% endblock %}

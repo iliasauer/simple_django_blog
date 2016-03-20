@@ -3,5 +3,8 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^', include('article.urls', namespace='article'))
+    url(r'^auth/', include('authorization.urls', namespace='authorization')),
+    url(r'^blog/', include('article.urls', namespace='article')),
+    url(r'^forum/', include('forum.urls', namespace='article')),
+    url(r'^', include('indexapp.urls', namespace='article')),
 ]
