@@ -6,5 +6,5 @@ urlpatterns = [
     url(r'^auth/', include('authorization.urls', namespace='authorization')),
     url(r'^blog/', include('article.urls', namespace='article')),
     url(r'^forum/', include('forum.urls', namespace='article')),
-    url(r'^', include('indexapp.urls', namespace='article')),
+    url(r'^', include('index.urls', namespace='article')),
 ]

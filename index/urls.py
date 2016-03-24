@@ -1,5 +1,5 @@
 from django.conf.urls import url
 
 urlpatterns = [
-    url(r'^$', 'indexapp.views.basic'),
+    url(r'^$', 'index.views.basic'),
 ]
