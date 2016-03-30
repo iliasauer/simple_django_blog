@@ -20,12 +20,12 @@
                     <p>Commentaries</p>
                     {% if username %}
                         <div class="leave-comment-block">
-                            <form action="/articles/addcommentary/{{ article.id }}/{{ username }}/" method="post">
+                            <form action="/blog/articles/addcommentary/{{ article.id }}/{{ username }}/" method="post">
                                 {% csrf_token %}
                                 {{ form }}
                                 <div class="leave-comment-buttons">
                                     <button type="submit">
-                                        Submit <img class="icon" src="{% static "article/img/submit.png" %}">
+                                        Submit <img class="icon" src="{% static "img/submit.png" %}">
                                     </button>
                                 </div>
                             </form>
