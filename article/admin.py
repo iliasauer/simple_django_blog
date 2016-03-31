@@ -1,10 +1,6 @@
 from django.contrib import admin
-from .models import Article, Commentary
 
-
-class ArticleInline(admin.StackedInline):
-    model = Commentary
-    extra = 1
+from .models import Article
 
 
 class ArticleAdmin(admin.ModelAdmin):
@@ -13,7 +9,6 @@ class ArticleAdmin(admin.ModelAdmin):
         'article_text',
         'article_date'
     ]
-    inlines = [ArticleInline]
     list_filter = ['article_date']
 
 admin.site.register(Article, ArticleAdmin)
